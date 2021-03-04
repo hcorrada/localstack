@@ -293,6 +293,11 @@ class LambdaExecutorContainers(LambdaExecutor):
                 environment['AWS_LAMBDA_CLIENT_CONTEXT'] = json.dumps(to_str(
                     base64.b64decode(to_bytes(context.client_context))))
 
+        if os.envinron.get('AWS_ACCESS_KEY_ID'):
+            environment['AWS_ACCESS_KEY_ID'] = os.environ['AWS_ACCESS_KEY_ID']
+        if os.environ.get('AWS_SECRET_ACCESS_KEY'):
+            environment['AWS_SECRET_ACCESS_KEY'] = os.environ['AWS_SECRET_ACCESS_KEY']
+
         # custom command to execute in the container
         command = ''
         events_file = ''
